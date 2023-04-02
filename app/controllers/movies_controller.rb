@@ -17,7 +17,14 @@ class MoviesController < ApplicationController
     year: params[:year])
     @movie.save
     render :show
+  end
   
-  
+  def update
+    @movie = Movie.find_by(id: params[:id])
+    @movie.title = params[:title] || @movies.title
+    @movie.actor = params[:actor] || @movies.actor
+    @movie.year = params[:year] || @movies.year
+    @movie.save
+    render :show
   end
 end
