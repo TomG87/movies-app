@@ -9,4 +9,15 @@ class MoviesController < ApplicationController
   @movies = Movie.all
   render :index
   end
+
+  def create
+    @movie = Movie.new(
+    title: params[:title],
+    actor: params[:actor],
+    year: params[:year])
+    @movie.save
+    render :show
+  
+  
+  end
 end
